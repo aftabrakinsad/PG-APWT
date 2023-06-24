@@ -23,7 +23,6 @@
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
   <p align="center">
-<h2 align="center">Transport Management System</h2>
 <table align="center">
   <tr>
   	<th colspan="4"><h3><a href="https://www.aiub.edu">American International University-Bangladesh(AIUB)</a></h3></th>
