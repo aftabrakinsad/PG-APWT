@@ -36,8 +36,9 @@ import { User } from "./user.entity";
             username: configService.get('DB_USERNAME'),
             password: configService.get('DB_PASSWORD'),
             database: configService.get('DB_DATABASE'),
-            entities: [Admin, User],
             synchronize: configService.get<boolean>('DB_SYNC'),
+            entities: [Admin, User],
+            // logging: true
         }),
         inject: [ConfigService],
         })
