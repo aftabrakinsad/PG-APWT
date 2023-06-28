@@ -37,4 +37,12 @@ export class UserService {
         user.password = userdto.password;
         return this.userRepo.update(u_id, user);
     }
+
+    adminadduser(userdto: UserDto) : any {
+        let user : User = new User();
+        user.u_name = userdto.u_name;
+        user.email = userdto.email;
+        user.password = userdto.password;
+        return this.userRepo.save(userdto);
+    }
 }

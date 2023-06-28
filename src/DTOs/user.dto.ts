@@ -3,4 +3,5 @@ export class UserDto {
     u_name: string;
     email: string;
     password: string;
+    adminid:number;
 }

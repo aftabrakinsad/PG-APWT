@@ -3,9 +3,12 @@ import { Admin } from 'src/Database/admin.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { AdminDto } from 'src/DTOs/admin.dto';
 import { Injectable } from '@nestjs/common';
+import { UserDto } from 'src/DTOs/user.dto';
+import { User } from 'src/Database/user.entity';
 
 @Injectable()
 export class AdminService {
+    [x: string]: any;
     constructor (@InjectRepository(Admin) private readonly adminRepo : Repository<Admin>) {
     }
 
@@ -37,4 +40,12 @@ export class AdminService {
         admin.password = admindto.password;
         return this.adminRepo.update(a_id, admin);
     }
+
+    // adminadduser(userdto: UserDto) : Promise<User> {
+    //     let user : User = new User();
+    //     user.u_name = userdto.u_name;
+    //     user.email = userdto.email;
+    //     user.password = userdto.password;
+    //     return this.userRepo.save(user);
+    // }
 }
