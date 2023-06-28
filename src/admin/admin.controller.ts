@@ -1,6 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { AdminService } from './admin.service';
 import { AdminDto } from 'src/DTOs/admin.dto';
+import { UserDto } from 'src/DTOs/user.dto';
 
 @Controller('admin')
 export class AdminController {
