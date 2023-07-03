@@ -2,7 +2,6 @@ import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'
 import { AdminService } from './admin.service';
 import { AdminDto } from 'src/DTOs/admin.dto';
 import { UserDto } from 'src/DTOs/user.dto';
-import { UserService } from 'src/user/user.service';
 
 @Controller('admin')
 export class AdminController {
@@ -39,10 +38,5 @@ export class AdminController {
         // admin = admin.filter((admin) => admin.a_id != a_id);
         // admin.push(admin);
         return this.adminService.updateAdmin(+a_id, admindto);
-    }
-
-    @Post('admin/adduser')
-    adminadduser(@Body() userdto: UserDto) : any {
-        return this.userService.adminaddUser(userdto);
     }
 }
