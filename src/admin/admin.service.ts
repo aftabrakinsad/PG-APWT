@@ -41,11 +41,11 @@ export class AdminService {
         return this.adminRepo.update(a_id, admin);
     }
 
-    // adminadduser(userdto: UserDto) : Promise<User> {
-    //     let user : User = new User();
-    //     user.u_name = userdto.u_name;
-    //     user.email = userdto.email;
-    //     user.password = userdto.password;
-    //     return this.userRepo.save(user);
-    // }
+    addUser(userdto: UserDto) : Promise<User> {
+        let user : User = new User();
+        user.u_name = userdto.u_name;
+        user.email = userdto.email;
+        user.password = userdto.password;
+        return this.userRepo.save(user);
+    }  
 }

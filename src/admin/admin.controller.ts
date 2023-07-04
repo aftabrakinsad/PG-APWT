@@ -1,12 +1,15 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, FileTypeValidator, Get, MaxFileSizeValidator, Param, ParseFilePipe, ParseIntPipe, Post, Put, Query, Session, UnauthorizedException, UploadedFile, UseGuards, UseInterceptors, UsePipes, ValidationPipe } from '@nestjs/common';
 import { AdminService } from './admin.service';
+import { UserService } from 'src/user/user.service';
 import { AdminDto } from 'src/DTOs/admin.dto';
 import { UserDto } from 'src/DTOs/user.dto';
 
 @Controller('admin')
 export class AdminController {
-    userService: any;
-    constructor(private readonly adminService: AdminService) { }
+    constructor(
+        private adminService: AdminService,
+        private userService: UserService
+        ) { }
 
     @Get('admins')
     getAdmins() {
@@ -38,5 +41,10 @@ export class AdminController {
         // admin = admin.filter((admin) => admin.a_id != a_id);
         // admin.push(admin);
         return this.adminService.updateAdmin(+a_id, admindto);
+    }
+
+    @Post('/useradd')
+    addUser(@Body() userDto: UserDto) {
+        return this.userService.addUser(userDto);
     }
 }
