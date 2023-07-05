@@ -18,13 +18,11 @@ export class UserController {
         return this.userService.addUser(userdto);
     }
 
-    //error here
-    // @Get('user/:u_id')
-    // findOne(@Param('u_id') u_id: number) {
-    // return user.find((user) => user.u_id == u_id);
-    //     return this.userService.findOne(+u_id);
-    // }
-
+    @Get('user/:u_id')
+    getAdmin(@Param('u_id') u_id: number) {
+    // return admin.find((admin) => admin.a_id == a_id);
+        return this.userService.getUser(u_id);
+    }
     @Delete('user/:u_id')
     deleteuser(@Param('u_id') u_id: number) {
         // user = user.filter((user) => user.u_id != u_id);

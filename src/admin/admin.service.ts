@@ -24,10 +24,9 @@ export class AdminService {
         return this.adminRepo.find();
     }
 
-    //error here
-    // findOne(a_id: number) {
-    //     return this.adminRepo.findOne(a_id);
-    // }
+    async getAdmin(a_id: number) : Promise<Admin> {
+        return await this.adminRepo.findOneBy({a_id});
+    }
 
     deleteAdmin(a_id : number) {
         return this.adminRepo.delete(a_id);
@@ -47,5 +46,25 @@ export class AdminService {
         user.email = userdto.email;
         user.password = userdto.password;
         return this.userRepo.save(user);
-    }  
+    }
+
+    getUsers() : Promise<User[]> {
+        return this.userRepo.find();
+    }
+
+    async getUserByID(u_id: number) : Promise<User> {
+        return await this.userRepo.findOneBy({u_id});
+    }
+
+    deleteUser(u_id : number) {
+        return this.userRepo.delete(u_id);
+    }
+
+    updateUser(u_id : number, userdto : UserDto) {
+        let user : User = new User();
+        user.u_name = userdto.u_name;
+        user.email = userdto.email;
+        user.password = userdto.password;
+        return this.userRepo.update(u_id, user);
+    }
 }

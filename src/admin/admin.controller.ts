@@ -23,12 +23,11 @@ export class AdminController {
         return this.adminService.addAdmin(admindto);
     }
 
-    //error here
-    // @Get('admin/:a_id')
-    // findOne(@Param('a_id') a_id: number) {
+    @Get('admin/:a_id')
+    getAdmin(@Param('a_id') a_id: number) {
     // return admin.find((admin) => admin.a_id == a_id);
-    //     return this.adminService.findOne(+a_id);
-    // }
+        return this.adminService.getAdmin(a_id);
+    }
 
     @Delete('admin/:a_id')
     deleteAdmin(@Param('a_id') a_id: number) {
@@ -46,5 +45,25 @@ export class AdminController {
     @Post('/useradd')
     addUser(@Body() userDto: UserDto) {
         return this.userService.addUser(userDto);
+    }
+
+    @Get('/users')
+    getUsers() {
+        return this.userService.getUsers();
+    }
+
+    @Get('/user/:u_id')
+    getUser(@Param('u_id') u_id: number) {
+        return this.userService.getUser(+u_id);
+    }
+
+    @Delete('/user/:u_id')
+    deleteUser(@Param('u_id') u_id: number) {
+        return this.userService.deleteUser(+u_id);
+    }
+
+    @Put('/user/:u_id')
+    updateUser(@Param('u_id') u_id: number, @Body() userDto: UserDto) {
+        return this.userService.updateUser(+u_id, userDto);
     }
 }

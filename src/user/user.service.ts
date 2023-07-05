@@ -21,10 +21,9 @@ export class UserService {
         return this.userRepo.find();
     }
 
-    //error here
-    // findOne(u_id: number) {
-    //     return this.userRepo.findOne(u_id);
-    // }
+    async getUser(u_id: number) : Promise<User> {
+        return await this.userRepo.findOneBy({u_id});
+    }
 
     deleteUser(u_id : number) {
         return this.userRepo.delete(u_id);
