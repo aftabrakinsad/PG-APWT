@@ -3,12 +3,15 @@ import { AdminService } from './admin.service';
 import { UserService } from 'src/user/user.service';
 import { AdminDto } from 'src/DTOs/admin.dto';
 import { UserDto } from 'src/DTOs/user.dto';
+import { MessagingDto } from 'src/DTOs/message.dto';
+import { MessageService } from 'src/message/message.service';
 
 @Controller('admin')
 export class AdminController {
     constructor(
         private adminService: AdminService,
-        private userService: UserService
+        private userService: UserService,
+        private messageService: MessageService
         ) { }
 
     @Get('admins')
@@ -66,4 +69,15 @@ export class AdminController {
     updateUser(@Param('u_id') u_id: number, @Body() userDto: UserDto) {
         return this.userService.updateUser(+u_id, userDto);
     }
+
+    @Post('/message')
+    addMessage(@Body() messageDto: MessagingDto) {
+        return this.messageService.addMessage(messageDto);
+    }
+
+    @Get('/messages')
+    Messaging() {
+        return this.messageService.Messaging();
+    }
+
 }

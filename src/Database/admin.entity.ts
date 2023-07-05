@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { User } from './user.entity';
+import { Message } from './message.entity';
 
 @Entity()
 export class Admin {
@@ -17,4 +18,7 @@ export class Admin {
 
   @OneToMany(() => User, (user) => user.admins)
   users: User[]
+
+  // @OneToMany(() => Message, (message) => message.admins)
+  // messages: Message[]
 }
