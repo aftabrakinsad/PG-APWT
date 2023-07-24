@@ -14,31 +14,31 @@ export class AdminController {
         private messageService: MessageService
         ) { }
 
-    @Get('admins')
+    @Get()
     getAdmins() {
         // return admin;
         return this.adminService.getAdmins();
     }
     
-    @Post('admin/AddAdmin')
+    @Post('/AddAdmin')
     addAdmin(@Body() admindto: AdminDto) {
         // admin.push(admindto);
         return this.adminService.addAdmin(admindto);
     }
 
-    @Get('admin/:a_id')
+    @Get('/:a_id')
     getAdmin(@Param('a_id') a_id: number) {
     // return admin.find((admin) => admin.a_id == a_id);
         return this.adminService.getAdmin(a_id);
     }
 
-    @Delete('admin/:a_id')
+    @Delete('/:a_id')
     deleteAdmin(@Param('a_id') a_id: number) {
         // admin = admin.filter((admin) => admin.a_id != a_id);
         return this.adminService.deleteAdmin(a_id);
     }
 
-    @Put('admin/:a_id')
+    @Put('/:a_id')
     updateAdmin(@Param('a_id') a_id: number, @Body() admindto: AdminDto) {
         // admin = admin.filter((admin) => admin.a_id != a_id);
         // admin.push(admin);
